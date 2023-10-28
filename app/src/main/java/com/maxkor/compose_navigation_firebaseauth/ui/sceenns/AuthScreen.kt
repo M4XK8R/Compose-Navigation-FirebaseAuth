@@ -12,20 +12,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.maxkor.compose_navigation_firebaseauth.R
-import com.maxkor.compose_navigation_firebaseauth.ui.theme.ComposeNavigationFirebaseAuthTheme
+import com.maxkor.compose_navigation_firebaseauth.ui.nav.Routes
 
 @Composable
-fun AuthScreen() {
+fun AuthScreen(navController: NavHostController) {
 
     Box(contentAlignment = Alignment.Center) {
 
         Column {
 
-            IconButton(onClick = { /*TODO*/ }) {
+            IconButton(
+                onClick = { navController.navigate(Routes.AfterAuthScreen.route) }
+            ) {
                 Image(
                     painter = painterResource(id = R.drawable.ic_google_48),
                     contentDescription = "Google auth image",
@@ -37,7 +39,7 @@ fun AuthScreen() {
         }
 
         Button(
-            onClick = { /*TODO*/ },
+            onClick = { navController.popBackStack() },
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(bottom = 24.dp)
@@ -45,13 +47,5 @@ fun AuthScreen() {
             Text(text = "Back to Main Screen", fontSize = 22.sp)
         }
 
-    }
-}
-
-@Preview(showSystemUi = true)
-@Composable
-fun PreviewAuth() {
-    ComposeNavigationFirebaseAuthTheme {
-        AuthScreen()
     }
 }

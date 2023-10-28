@@ -11,14 +11,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.maxkor.compose_navigation_firebaseauth.R
-import com.maxkor.compose_navigation_firebaseauth.ui.theme.ComposeNavigationFirebaseAuthTheme
+import com.maxkor.compose_navigation_firebaseauth.ui.nav.Routes
 
 @Composable
-fun AfterAuthScreen() {
+fun AfterAuthScreen(navController: NavHostController) {
 
     Box {
 
@@ -32,7 +32,14 @@ fun AfterAuthScreen() {
 
         Column(modifier = Modifier.align(Alignment.Center)) {
 
-            IconButton(onClick = { /*TODO*/ }) {
+            IconButton(
+                onClick = {
+                    navController.popBackStack(
+                        route = Routes.MainScreen.route,
+                        inclusive = false
+                    )
+                }
+            ) {
                 Image(
                     painter = painterResource(id = R.drawable.baseline_keyboard_return_24),
                     contentDescription = "Return image",
@@ -43,7 +50,7 @@ fun AfterAuthScreen() {
         }
 
         Button(
-            onClick = { /*TODO*/ },
+            onClick = { navController.popBackStack() },
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(bottom = 24.dp)
@@ -54,10 +61,3 @@ fun AfterAuthScreen() {
     }
 }
 
-@Preview(showSystemUi = true)
-@Composable
-fun PreviewAuthScreen() {
-    ComposeNavigationFirebaseAuthTheme {
-        AfterAuthScreen()
-    }
-}

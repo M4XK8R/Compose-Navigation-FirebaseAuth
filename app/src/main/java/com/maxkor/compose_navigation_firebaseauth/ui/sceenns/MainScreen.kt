@@ -9,13 +9,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.maxkor.compose_navigation_firebaseauth.ui.theme.ComposeNavigationFirebaseAuthTheme
+import androidx.navigation.NavHostController
+import com.maxkor.compose_navigation_firebaseauth.ui.nav.Routes
 
 @Composable
-fun MainScreen() {
+fun MainScreen(navController: NavHostController) {
 
     Box(contentAlignment = Alignment.Center) {
 
@@ -29,7 +29,9 @@ fun MainScreen() {
 
             Spacer(modifier = Modifier.height(40.dp))
 
-            Button(onClick = { /*TODO*/ }) {
+            Button(
+                onClick = { navController.navigate(Routes.AuthScreen.route) }
+            ) {
                 Text(text = "To Auth Screen", fontSize = 22.sp)
             }
 
@@ -38,10 +40,3 @@ fun MainScreen() {
     }
 }
 
-@Preview(showSystemUi = true)
-@Composable
-fun PreviewMain() {
-    ComposeNavigationFirebaseAuthTheme {
-        MainScreen()
-    }
-}
