@@ -17,13 +17,15 @@ fun NavNav() {
         navController = navController,
         startDestination = Routes.MainScreen.route,
         builder = {
-            composable(Routes.MainScreen.route){
+            composable(Routes.MainScreen.route) {
                 MainScreen(navController)
             }
-            composable(Routes.AuthScreen.route){
-                AuthScreen(navController)
+            composable(Routes.AuthScreen.route) {
+                AuthScreen(navController, goToNextScreen = {
+                    navController.navigate(Routes.AfterAuthScreen.route)
+                })
             }
-            composable(Routes.AfterAuthScreen.route){
+            composable(Routes.AfterAuthScreen.route) {
                 AfterAuthScreen(navController)
             }
         }

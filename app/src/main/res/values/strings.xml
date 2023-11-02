@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Compose-Navigation-FirebaseAuth</string>
+
+    <string name="your_web_client_id">545541722171-24t6bj8d3317rcugiah0lpao6u8iqvvk.apps.googleusercontent.com</string>
+    <string name="your_web_client_id2">545541722171-24t6bj8d3317rcugiah0lpao6u8iqvvk.apps.googleusercontent.com</string>
+    <string name="your_web_client_id3">545541722171–24t6bj8d3317rcugiah0lpao6u8iqvvk.apps.googleusercontent.com</string>
+    <string name="your_web_client_id4">545541722171-d3cc95bt78kdr055hl05bptg8pagmaj0.apps.googleusercontent.com</string>
+
 </resources>
